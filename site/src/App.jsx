@@ -145,11 +145,9 @@ export default function App() {
     { label: "Solution", href: "https://github.com/shobman/aidos/blob/main/src/templates/solution.md" },
     { label: "Tech Design", href: "https://github.com/shobman/aidos/blob/main/src/templates/tech-design.md" },
     { label: "Testing", href: "https://github.com/shobman/aidos/blob/main/src/templates/testing.md" },
-    { label: "Definition", href: "https://github.com/shobman/aidos/blob/main/src/templates/definition.md" },
     { label: "Issues Log", href: "https://github.com/shobman/aidos/blob/main/src/templates/issues-log.md" },
     { label: "Overflow Log", href: "https://github.com/shobman/aidos/blob/main/src/templates/overflow-log.md" },
     { label: "Meeting Minutes", href: "https://github.com/shobman/aidos/blob/main/src/templates/meeting-minutes.md" },
-    { label: "Retrospective", href: "https://github.com/shobman/aidos/blob/main/src/templates/retrospective.md" },
   ];
 
   const footerSkills = [

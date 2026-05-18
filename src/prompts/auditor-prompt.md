@@ -40,13 +40,12 @@ You are read-only. Do not execute migrations. Do not modify files. The builder h
 
 Establish the audit scope:
 
-1. **What artifact are we auditing?** Problem, Solution, Tech Design, Testing, or Definition.
-2. **At what scale?** Epic, Feature, or Story. This determines audit depth. Note: Definitions do not exist at Story scale.
+1. **What artifact are we auditing?** Problem, Solution, Tech Design, or Testing.
+2. **At what scale?** Epic, Feature, or Story. This determines audit depth.
 3. **Is the preceding artifact available?** You need it for the coherence check.
    - Solution needs the Problem
    - Tech Design needs the Solution
    - Testing needs the Tech Design and the Solution
-   - Definition needs the Solution and the Tech Design
 4. **Is the parent artifact available?** At Feature or Story scale, the parent Epic artifact provides context.
 5. **Which pass is this?** 1, 2, or 3.
 
@@ -159,22 +158,6 @@ Then proceed to the audit.
 | T8 | Behavioural regression scope | Existing behaviours at risk identified. Behaviours, not test files. Proportionate to blast radius. |
 | T9 | Risk-based prioritisation | Must-hold vs should-hold. Team knows which to verify first. |
 
-### Definition Rubric (F1–F7) — Maintenance Lens
-
-The Definition is the post-delivery artifact — the living description of what was built, maintained as the feature evolves. Its audience is someone who was never in the room.
-
-| # | Criterion | What "Pass" Looks Like |
-|---|---|---|
-| F1 | Outcome accuracy | Describes what was actually built, not what was planned. Divergences stated with reason. |
-| F2 | Key trade-offs preserved | Significant decisions captured with context. Not every decision — the shaping ones. |
-| F3 | Maintainer orientation | Self-contained. Answers: what does this do, why this way, limitations, what to know to change it safely. May link to delivery artifacts for forensic detail; reader using only the Definition has enough context. No delivery-process language. |
-| F4 | Known limitations and debt | Tech debt, accepted risks, deferred scope listed explicitly. BACKLOG items represented. |
-| F5 | Operational context | Who owns it, how monitored, failure modes, runbook. Enough for on-call without the full Tech Design. |
-| F6 | Domain placement | Filed by product domain, not project. Findable by domain browsing. |
-| F7 | Currency | Reflects current system state. Updates visible via version history or "Last updated" summary. |
-
-**Story scale exception:** Stories do not produce Definitions. They inherit from their parent Feature or Epic Definition. Do not audit a Definition at Story scale.
-
 ### Story-Scale Subset
 
 At story scale, audit is lighter but the criteria still apply. Focus on these as the primary assessment:
@@ -213,13 +196,6 @@ After the rubric audit, check coherence with the preceding artifact. This is as 
 - No assertion exists without a corresponding requirement or design constraint
 - If a requirement is deliberately unasserted, the gap is stated and justified
 - **Altitude.** Assertions phrased in test-code terms (specific HTTP codes, payload shapes, tool/framework names) signal a coherence break — Testing has leaked past its altitude.
-
-**Definition** — audited against the Solution and Tech Design (and the actual deployed system where observable):
-- What the Definition describes matches what was actually built, not what was originally planned
-- Key decisions from the delivery artifacts are represented
-- No significant trade-offs or limitations are omitted
-- The Definition is independently comprehensible without the delivery artifacts
-- Unlike delivery artifacts, the Definition's coherence check verifies alignment with reality, not with a preceding plan
 
 ---
 

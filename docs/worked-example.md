@@ -271,24 +271,3 @@ The auditor runs the Testing rubric against the Test Plan and clears it on Pass 
 
 **The builder surfaced an assumption the human hadn't considered.** The human assumed all teams use the same notification channel. The builder caught it. That assumption, if it had survived into the Tech Design, would have produced a system that only worked for Slack teams — and the Teams and PagerDuty users would have discovered this after delivery.
 
----
-
-## Epilogue: The Definition
-
-Two weeks later, the notification service is in production and working. The platform engineer opens a new builder session.
-
-> **Human:** The deploy notification service has been live for two weeks. Let's write the Definition.
-
-> **Builder:** I'll load the delivery artifacts for reference and scaffold the Definition. The audience for this document is someone who was never in the room — a future maintainer, an on-call engineer, or an AI agent picking up work on this feature next year.
-
-The builder works through the Definition sections:
-
-- **What This Is** — a notification routing service that delivers deploy event notifications to team-specific channels (Slack, Teams, PagerDuty) within five minutes of a deploy event. Receives webhooks from the CI/CD pipeline, looks up per-team routing config, formats and dispatches messages.
-- **Why It Works This Way** — the key decisions table captures the choices that shaped the system: webhook-based (not event bus — simplicity over flexibility), PR-based routing config (not self-service UI — sufficient for twelve teams), dead letter queue for Teams (accepted reliability risk), one-team-one-channel constraint (avoids rate limit complexity).
-- **Known Limitations and Debt** — Teams webhook reliability is an accepted risk with DLQ mitigation. No self-service config UI (O2 from the Overflow Log, now BACKLOG). No delivery confirmation metrics (O3, BACKLOG). In-memory queue is sufficient for current scale but won't survive a service restart — events during restart are recovered via pipeline retry.
-- **Operational Context** — owned by platform team. Health endpoint monitored, on-call paged on failure. Pipeline retry mechanism covers service-down scenarios.
-- **How to Change It Safely** — routing config is in YAML in the service repo. Adding a new channel type requires a new formatter. Rate limit constraint: one team per channel.
-
-The Definition is audited, passes, and moves to ACCEPTED. The delivery artifacts move to `archive/`. The Definition is filed in `definitions/ci-cd/deploy-notifications.md`.
-
-Six months from now, when someone asks "why does the notification service use a dead letter queue for Teams but not Slack?", the answer is in the Definition — not buried in a project's Tech Design document that nobody remembers exists.
