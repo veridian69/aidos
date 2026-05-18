@@ -23,7 +23,7 @@ Rubric criteria:
     C11 No duplication — reference, don't copy, from other artifacts
     C12 Single unit of work — one problem, decompose if it's too many
 
-  Problem Rubric (P1–P11) — discipline-specific criteria. Each section
+  Problem Rubric (P1–P10) — discipline-specific criteria. Each section
   below maps to one or more of these:
     P1  Clarity → Problem Statement
     P2  Stakeholder identification → Stakeholders
@@ -35,7 +35,6 @@ Rubric criteria:
     P8  Constraints identified → Constraints
     P9  Impact and urgency → Impact and Urgency
     P10 Existing alternatives considered → Existing Alternatives
-    P11 Implementation neutrality → cross-cutting (no single section; applies across the whole artifact)
 
 Coherence check:
   The Problem artifact is the start of the stack. No preceding artifact

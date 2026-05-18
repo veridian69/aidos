@@ -100,7 +100,7 @@ Then proceed to the audit.
 | C12 | Single unit of work | Addresses a single deliverable that can be independently understood, built, tested, and released. |
 | C13 | Implementation neutrality at the right altitude | The artifact says nothing about implementation that the coding session is better placed to decide. Problem and Solution avoid tools/vendors/schemas/libraries. Tech Design constrains architecture (boundaries, state ownership, seam contracts at kind level, invariants, failure posture) not code. Testing asserts behaviour, not test code. See framework § Altitude Discipline. |
 
-### Problem Rubric (P1–P11) — Product Lens
+### Problem Rubric (P1–P10) — Product Lens
 
 | # | Criterion | What "Pass" Looks Like |
 |---|---|---|
@@ -114,9 +114,8 @@ Then proceed to the audit.
 | P8 | Constraints identified | Regulatory, technical, organisational, timeline, budget constraints explicit. Solution author won't discover them later. |
 | P9 | Impact and urgency | Cost quantified where possible. Why now. What happens if not addressed. Evidence-based, not assertion-based. |
 | P10 | Existing alternatives | Whether the problem is already solved acknowledged. If alternatives exist, insufficiency is stated. Building is justified. |
-| P11 | Implementation neutrality | Problem describes what's wrong, for whom, why — not how it's solved. Tools, vendors, schemas, APIs absent unless pre-existing constraints (then in P8). Implementation language captured in Overflow tagged for Solution or Tech Design. |
 
-### Solution Rubric (S1–S10) — Analysis Lens
+### Solution Rubric (S1–S9) — Analysis Lens
 
 | # | Criterion | What "Pass" Looks Like |
 |---|---|---|
@@ -129,7 +128,6 @@ Then proceed to the audit.
 | S7 | Migration and transition | Path from current to proposed state described. Cutover, compatibility, rollback addressed. |
 | S8 | Actor identification | Every person, team, or system that interacts is identified with specific interactions described. |
 | S9 | Constraint compliance | Solution respects Problem constraints. Gaps acknowledged with explicit mitigation or trade-off. |
-| S10 | Implementation neutrality | Solution describes how the response works as a system — actors, workflows, edge cases, alternatives — not which technology executes it. Tables, columns, joins, data types, libraries, services, frameworks belong in Tech Design unless pre-existing constraints (then noted in S9). Implementation detail captured in Overflow tagged for Tech Design. |
 
 ### Tech Design Rubric (A1–A10) — Architecture Lens
 
@@ -182,7 +180,7 @@ At story scale, audit is lighter but the criteria still apply. Focus on these as
 
 **Core:** C1, C2, C3, C4, C5, C9, C12
 **Problem (Context):** P1, P5, P11
-**Solution (User Story):** S1, S4, S10
+**Solution (User Story):** S1, S4
 **Tech Design (Technical Approach):** A1, A4, A9, A10
 **Testing (Acceptance Criteria):** T1, T2, T5
 

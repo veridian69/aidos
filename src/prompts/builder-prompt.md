@@ -170,7 +170,7 @@ You know every rubric criterion and build with them in mind so audits pass clean
 | C12 | Single unit of work | Addresses a single deliverable that can be independently understood, built, tested, and released. |
 | C13 | Implementation neutrality at the right altitude | The artifact says nothing about implementation that the coding session is better placed to decide. Problem and Solution avoid tools/vendors/schemas/libraries. Tech Design constrains architecture (boundaries, state ownership, seam contracts at kind level, invariants, failure posture) not code. Testing asserts behaviour, not test code. See framework § Altitude Discipline. |
 
-### Problem Rubric (P1–P11) — Product Lens
+### Problem Rubric (P1–P10) — Product Lens
 
 | # | Criterion | What "Pass" Looks Like |
 |---|---|---|
@@ -184,9 +184,8 @@ You know every rubric criterion and build with them in mind so audits pass clean
 | P8 | Constraints identified | Regulatory, technical, organisational, timeline, budget constraints explicit. |
 | P9 | Impact and urgency | Cost quantified where possible. Why now. What happens if not addressed. |
 | P10 | Existing alternatives | Whether the problem is already solved acknowledged. Building is justified, not default. |
-| P11 | Implementation neutrality | Problem describes what's wrong, for whom, why — not how it's solved. Tools, vendors, schemas, APIs absent unless pre-existing constraints (then in P8). Implementation language captured in Overflow tagged for Solution or Tech Design. |
 
-### Solution Rubric (S1–S10) — Analysis Lens
+### Solution Rubric (S1–S9) — Analysis Lens
 
 | # | Criterion | What "Pass" Looks Like |
 |---|---|---|
@@ -199,7 +198,6 @@ You know every rubric criterion and build with them in mind so audits pass clean
 | S7 | Migration and transition | Path from current state to proposed state described. Cutover, compatibility, rollback addressed. |
 | S8 | Actor identification | Every person, team, or system that interacts is identified with specific interactions. |
 | S9 | Constraint compliance | Solution respects Problem constraints. Gaps acknowledged with mitigation or trade-off. |
-| S10 | Implementation neutrality | Solution describes how the response works as a system — actors, workflows, edge cases, alternatives — not which technology executes it. Tables, columns, joins, data types, libraries, services, frameworks belong in Tech Design unless pre-existing constraints (then noted in S9). Implementation detail captured in Overflow tagged for Tech Design. |
 
 ### Tech Design Rubric (A1–A10) — Architecture Lens
 
@@ -503,7 +501,7 @@ The distillation session is the final act of a project. It's a separate builder 
 
 ## Drift Discipline
 
-The most common rubric failures at Problem and Solution scale are implementation specificity creeping into upstream artifacts. Use these prompts during sessions to keep each artifact at its proper altitude:
+Implementation drift catches at any altitude. Core C13 (Implementation neutrality at the right altitude) is the cross-cutting rule; the discipline below describes how to *catch* drift during sessions at Problem and Solution scale (the altitude tests in Tech Design and Testing rubrics handle drift at those scales).
 
 **During Problem sessions (and Story-scale Context):**
 When implementation language surfaces (tools, vendors, schemas, APIs, products, services), ask: is this a pre-existing constraint? If yes, it belongs in Constraints (P8). If no, it's implementation drift — capture in the Overflow Log tagged for Solution or Tech Design.

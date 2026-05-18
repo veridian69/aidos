@@ -23,7 +23,7 @@ Rubric criteria:
     C11 No duplication — reference the Problem, don't restate it
     C12 Single unit of work — one coherent solution
 
-  Solution Rubric (S1–S10) — discipline-specific criteria:
+  Solution Rubric (S1–S9) — discipline-specific criteria:
     S1  Conceptual coherence → Solution Overview
     S2  Workflow completeness → Workflows
     S3  Edge cases → Edge Cases
@@ -33,7 +33,6 @@ Rubric criteria:
     S7  Migration and transition → Migration and Transition
     S8  Actor identification → Actors
     S9  Constraint compliance → Constraint Compliance
-    S10 Implementation neutrality → cross-cutting (no single section; applies across the whole artifact)
 
 Coherence check:
   The Solution is audited against the Problem artifact. Every goal in the
