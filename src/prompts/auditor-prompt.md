@@ -133,16 +133,16 @@ Then proceed to the audit.
 
 | # | Criterion | What "Pass" Looks Like |
 |---|---|---|
-| A1 | Component clarity | Every component named, responsibility stated, boundaries defined. No overlaps or gaps. |
-| A2 | Integration points | All interfaces explicit. Protocols, data formats, auth, error handling, rate limits documented. |
-| A3 | Data model | What's persisted, transient, cached, derived defined. Schema changes and data lifecycle addressed. |
-| A4 | Error handling strategy | Approach explicit at each layer — caught, propagated, retried, surfaced. Error categories defined. |
-| A5 | Technology choices justified | Selections stated with rationale. Fit, not habit. Unusual choices have documented trade-offs. |
-| A6 | Performance and capacity | Expected load, response targets, data volumes, resource limits stated. Scaling approach or explicit no-scale assumption. |
-| A7 | Deployment and environment | How deployed, infrastructure dependencies, config, secrets, environment differences documented. |
-| A8 | Migration path | Current to target state without breaking existing functionality. Rollback, feature flags, compatibility addressed. |
-| A9 | Constraints and boundaries | Hard limits on what the implementation must not do. Guardrails explicit for human or AI implementer. |
-| A10 | Coding agent readiness | Usable as a brief for an AI coding agent without clarifying questions. Acceptance criteria, boundaries, naming, structure explicit. |
+| A1 | Boundary clarity | Major components / services / modules / bounded contexts named with ONE responsibility AND what they do NOT own. No orphaned arrows in the implied diagram. |
+| A2 | Seam contracts (kind, not shape) | Each seam: kind (event/command/query/request-response/batch/stream), direction of trust, sync vs async, idempotency, delivery guarantee, semantic meaning of interpreted values. Wire formats and field names absent. |
+| A3 | State ownership and topology | Each kind of state: named single writer; source of truth for live value; justification vs derived alternative; explicit directionality of any derived/cached/replicated relationship. Storage tech absent. |
+| A4 | Invariants | System-level always-true properties, decision-precedence orders, and sacred operations named explicitly. New mechanisms declare which invariant they preserve or extend. |
+| A5 | Quality properties | Latency / throughput / availability / scale envelope expressed as architectural constraints with topology implications spelled out. |
+| A6 | Failure and recovery posture | For each major failure mode: what's tolerated, surfaced, healed, operator-required. Decisions not error-handling code. |
+| A7 | Temporal stance | For each significant flow: sync request / eventual consistency / scheduled batch / event-driven / polled. Deliberate vs default recorded. |
+| A8 | Trust zones | Where security boundaries sit; auth/identity propagation at architectural level. "Not applicable" stated and justified. |
+| A9 | Implementation handoff | Three things named: what's constrained (must), what's left open (may — at least one), what's reversible vs locked-in (be careful). Zero "left open" areas = overreach. |
+| A10 | Transition strategy | Architectural strategy when transitioning from existing system: strangler / side-by-side / cutover / dual-write. "Greenfield, no transition" valid if stated. |
 
 ### Testing Rubric (T1–T9) — Quality Lens
 
@@ -181,7 +181,7 @@ At story scale, audit is lighter but the criteria still apply. Focus on these as
 **Core:** C1, C2, C3, C4, C5, C9, C12
 **Problem (Context):** P1, P5, P11
 **Solution (User Story):** S1, S4
-**Tech Design (Technical Approach):** A1, A4, A9, A10
+**Tech Design (Technical Approach):** A1, A2, A4
 **Testing (Acceptance Criteria):** T1, T2, T5
 
 Other criteria can be assessed if relevant, but these are the minimum for a meaningful story-scale audit.
@@ -201,10 +201,10 @@ After the rubric audit, check coherence with the preceding artifact. This is as 
 - Non-goals from the Problem aren't accidentally in scope
 
 **Tech Design** — audited against the Solution:
-- Every component and decision traces to something in the Solution
+- Every named boundary, seam contract, state owner, and invariant traces to something the Solution requires
 - Nothing in the Solution is left unaddressed without explicit justification
-- Actors and workflows from the Solution have technical implementations
-- Dependencies identified in the Solution are addressed
+- Actors and workflows from the Solution have architectural homes (named boundaries; named seams)
+- **Seam discipline.** Implementation decisions visible in the Tech Design that should be in the coding session (specific schemas, function signatures, framework choices) signal a coherence break — the architecture has leaked past its altitude.
 
 **Testing** — audited against the Tech Design and the Solution:
 - Every test case traces to a requirement in the Solution or a technical scenario in the Tech Design

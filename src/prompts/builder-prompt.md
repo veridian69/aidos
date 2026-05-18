@@ -203,16 +203,16 @@ You know every rubric criterion and build with them in mind so audits pass clean
 
 | # | Criterion | What "Pass" Looks Like |
 |---|---|---|
-| A1 | Component clarity | Every component named, responsibility stated, boundaries defined. No overlaps or gaps. |
-| A2 | Integration points | All interfaces explicit. Protocols, data formats, auth, error handling, rate limits documented. |
-| A3 | Data model | What's persisted, transient, cached, derived. Schema changes and data lifecycle addressed. |
-| A4 | Error handling strategy | Approach explicit at each layer — caught, propagated, retried, surfaced. Error categories defined. |
-| A5 | Technology choices justified | Selections stated with rationale. Fit, not habit. |
-| A6 | Performance and capacity | Expected load, response targets, data volumes, resource limits, scaling approach stated. |
-| A7 | Deployment and environment | How deployed, infrastructure dependencies, config, secrets, environment differences documented. |
-| A8 | Migration path | Current to target state without breaking existing functionality. Rollback addressed. |
-| A9 | Constraints and boundaries | Hard limits on what the implementation must not do. Guardrails for the implementer. |
-| A10 | Coding agent readiness | Usable as a brief for an AI coding agent. Acceptance criteria, boundaries, naming, file structure explicit. |
+| A1 | Boundary clarity | Major components / services / modules / bounded contexts named with ONE responsibility AND what they do NOT own. No orphaned arrows in the implied diagram. |
+| A2 | Seam contracts (kind, not shape) | Each seam: kind (event/command/query/request-response/batch/stream), direction of trust, sync vs async, idempotency, delivery guarantee, semantic meaning of interpreted values. Wire formats and field names absent. |
+| A3 | State ownership and topology | Each kind of state: named single writer; source of truth for live value; justification vs derived alternative; explicit directionality of any derived/cached/replicated relationship. Storage tech absent. |
+| A4 | Invariants | System-level always-true properties, decision-precedence orders, and sacred operations named explicitly. New mechanisms declare which invariant they preserve or extend. |
+| A5 | Quality properties | Latency / throughput / availability / scale envelope expressed as architectural constraints with topology implications spelled out. |
+| A6 | Failure and recovery posture | For each major failure mode: what's tolerated, surfaced, healed, operator-required. Decisions not error-handling code. |
+| A7 | Temporal stance | For each significant flow: sync request / eventual consistency / scheduled batch / event-driven / polled. Deliberate vs default recorded. |
+| A8 | Trust zones | Where security boundaries sit; auth/identity propagation at architectural level. "Not applicable" stated and justified. |
+| A9 | Implementation handoff | Three things named: what's constrained (must), what's left open (may — at least one), what's reversible vs locked-in (be careful). Zero "left open" areas = overreach. |
+| A10 | Transition strategy | Architectural strategy when transitioning from existing system: strangler / side-by-side / cutover / dual-write. "Greenfield, no transition" valid if stated. |
 
 ### Testing Rubric (T1–T9) — Quality Lens
 
@@ -305,16 +305,16 @@ Problem: [link]
 Status: [status]
 Solution: [link]
 
-## Components                  — A1
-## Integration Points         — A2
-## Data Model                 — A3
-## Error Handling             — A4
-## Technology Choices         — A5
-## Performance and Capacity   — A6
-## Deployment and Environment — A7
-## Migration Path             — A8
-## Constraints and Boundaries — A9
-## Coding Agent Brief         — A10
+## Boundaries                 — A1
+## Seam Contracts             — A2
+## State Ownership            — A3
+## Invariants                 — A4
+## Quality Properties         — A5
+## Failure and Recovery       — A6
+## Temporal Stance            — A7
+## Trust Zones                — A8
+## Implementation Handoff     — A9
+## Transition Strategy        — A10
 ## Issues
 ## Decisions
 ```
