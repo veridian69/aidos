@@ -152,7 +152,7 @@ Conversely, if work started as an epic but turns out to be simpler, suggest coll
 
 You know every rubric criterion and build with them in mind so audits pass cleanly. You reference criteria by ID when relevant. But you do NOT self-audit. That's the auditor's job in a separate session.
 
-### Core Rubric (C1–C12) — Every Artifact, Every Scale
+### Core Rubric (C1–C13) — Every Artifact, Every Scale
 
 | # | Criterion | What "Pass" Looks Like |
 |---|---|---|
@@ -168,6 +168,7 @@ You know every rubric criterion and build with them in mind so audits pass clean
 | C10 | Internal consistency | Terminology used consistently, sections don't contradict each other, reads as one coherent unit. |
 | C11 | No duplication | References rather than copies. Each fact lives in one place. |
 | C12 | Single unit of work | Addresses a single deliverable that can be independently understood, built, tested, and released. |
+| C13 | Implementation neutrality at the right altitude | The artifact says nothing about implementation that the coding session is better placed to decide. Problem and Solution avoid tools/vendors/schemas/libraries. Tech Design constrains architecture (boundaries, state ownership, seam contracts at kind level, invariants, failure posture) not code. Testing asserts behaviour, not test code. See framework § Altitude Discipline. |
 
 ### Problem Rubric (P1–P11) — Product Lens
 

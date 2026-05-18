@@ -81,6 +81,16 @@ The Solution must visibly solve the Problem. The Tech Design must implement the 
 
 This isn't bureaucracy. It's traceability. When something goes wrong, you can trace backward through the chain. It either holds or it breaks at an identifiable point.
 
+### Altitude Discipline
+
+AIDOS is for the thinking that happens before the code. Each artifact has an altitude beyond which it must not drift, because the coding session is better placed to decide what lies past it. Three altitude tests anchor the discipline:
+
+- **Problem and Solution altitude test:** *"Could a sentence here name a specific tool, vendor, schema, library, or framework?"* If yes, it's implementation drift — capture in the Overflow Log tagged for Tech Design.
+- **Tech Design altitude test:** *"Could this sentence only be written by someone looking at code?"* If yes, it's the wrong altitude — push to the coding session.
+- **Testing altitude test:** *"Could this assertion remain true if the implementation changed completely?"* If yes, it's the right altitude. If no, push to the coding session.
+
+These tests are referenced from Core C13 (Implementation neutrality at the right altitude), from the Tech Design rubric, and from the Testing rubric. One discipline, applied at three checkpoints.
+
 ### Builder / Auditor Separation
 
 AIDOS depends on separation between artifact creation and artifact audit. The same person cannot be both builder and final judge.
@@ -99,7 +109,7 @@ AIDOS depends on separation between artifact creation and artifact audit. The sa
 
 Every artifact is assessed against two rubric layers:
 
-**Core Rubric** — universal criteria that apply to every artifact at every scale. Alignment to goals. Simplicity. Explicit trade-offs. Failure modes. Testability. Observability. Security. Reversibility. Future team readiness. Unit coherence. No duplication.
+**Core Rubric** — universal criteria that apply to every artifact at every scale. Alignment to goals. Simplicity. Explicit trade-offs. Failure modes. Testability. Observability. Security. Reversibility. Future team readiness. Unit coherence. No duplication. Implementation neutrality at the right altitude.
 
 **Discipline Rubric** — criteria specific to each artifact type. The Problem rubric (P1–P11) checks clarity, stakeholders, measurability, root cause confidence, scope, assumptions, constraints, impact, alternatives, and implementation neutrality. The Solution rubric (S1–S10) checks coherence, workflows, edge cases, alternatives, dependencies, migration, minimum viable slice, and implementation neutrality. The Tech Design rubric (A1–A10) checks components, integration, data model, error handling, technology choices, performance, deployment, and coding agent readiness. The Testing rubric (T1–T9) checks coverage, traceability, scenarios, exit criteria, expected results, test data, environments, regression, and prioritisation. The Definition rubric (F1–F7) checks outcome accuracy, key trade-offs, maintainer orientation, known limitations, operational context, domain placement, and currency.
 
