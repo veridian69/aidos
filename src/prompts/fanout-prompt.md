@@ -26,7 +26,7 @@ To avoid race conditions when multiple sub-agents run concurrently:
 - **Shared-file writes are single-writer:**
   1. You (the Fanout skill) seed Risks into Story stubs sequentially during Phase 2 dispatch before invoking each sub-agent (no concurrency).
   2. You aggregate Issues in the final report for BA visibility — read-only across artifacts, no write to `.aidos/issues-log.md`.
-  3. The BA copies escalated Issues to `.aidos/issues-log.md` during their review step (per `framework.md:179`).
+  3. The BA copies escalated Issues to `.aidos/issues-log.md` during their review step (per `framework.md:194`).
 
 This removes the concurrent-write race entirely. Sub-agents stay scoped to their own artifact; shared bookkeeping is single-writer (you, or the BA).
 
@@ -114,7 +114,7 @@ Stories:
 
 Open Issues:
 - Across {N} artifacts; surfaced for human review. Inline in each artifact's Issues table.
-- Issues remain inline — you do NOT write to .aidos/issues-log.md. The BA escalates appropriate Issues to the Issues Log during their review step (framework.md:179).
+- Issues remain inline — you do NOT write to .aidos/issues-log.md. The BA escalates appropriate Issues to the Issues Log during their review step (framework.md:194).
 
 Per-blocked-item:
 - {file path} — reason (e.g. "3-pass cap reached on Tech Design; auditor finding 'B3 missing seam contract'"), suggested upstream investigation.

@@ -68,6 +68,7 @@ jobs:
           cp src/rubrics/solution.md _staging/aidos-auditor/rubrics/
           cp src/rubrics/tech-design.md _staging/aidos-auditor/rubrics/
           cp src/rubrics/testing.md _staging/aidos-auditor/rubrics/
+          cp src/rubrics/breakdown.md _staging/aidos-auditor/rubrics/
           cp CONTRIBUTING.md _staging/aidos-auditor/
           sed -i 's|`src/rubrics/|`rubrics/|g; s|`src/templates/|`templates/|g; s|`src/framework\.md`|`framework.md`|g; s|`src/migrations/|`migrations/|g' _staging/aidos-auditor/auditor-prompt.md
 

@@ -329,5 +329,5 @@ When invoked against a freshly-stubbed `.aidos/` (a collection of Feature folder
    - Read each stub's TL;DR + Breakdown Context section.
    - Apply the Breakdown rubric across the collection.
    - Apply the Core rubric to each individual stub's TL;DR + Breakdown Context.
-4. Write findings per stub into that stub's Auditor Notes section. Write cross-cutting B3 (coverage) findings into the upstream artifact's Auditor Notes (Epic Solution or parent `feature.md`).
+4. Write findings per stub into that stub's Auditor Notes section. Write cross-cutting criterion B3 (Coverage) findings into the upstream artifact's Auditor Notes (Epic Solution or parent `feature.md`).
 5. Three-pass rule still applies: Pass 1 full assessment; Pass 2 re-audits failed criteria; Pass 3 final. After three passes with unresolved Bugs, escalate up the stack — the issue is structural (likely in the upstream Solution or Feature, not the breakdown itself).

@@ -100,7 +100,7 @@ f{n}-{featurename}/
 
 For each stub:
 
-1. Use the relevant template from `templates/` (problem.md, solution.md, tech-design.md, testing.md, feature.md, or the appropriate Story template — match the existing artifact convention for that scale).
+1. Use the relevant template from `templates/` (problem.md, solution.md, tech-design.md, testing.md, or the appropriate Story template — match the existing artifact convention for that scale). For Feature stubs (feature.md), compose from the problem.md, solution.md, and tech-design.md templates per the Feature scaling convention in framework.md.
 2. Pre-fill the stub at the top with:
 
    ```markdown

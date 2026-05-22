@@ -89,6 +89,7 @@ try {
     Copy-To (Join-Path $root "src\rubrics\solution.md")             (Join-Path $a "rubrics\solution.md")
     Copy-To (Join-Path $root "src\rubrics\tech-design.md")          (Join-Path $a "rubrics\tech-design.md")
     Copy-To (Join-Path $root "src\rubrics\testing.md")              (Join-Path $a "rubrics\testing.md")
+    Copy-To (Join-Path $root "src\rubrics\breakdown.md")           (Join-Path $a "rubrics\breakdown.md")
     Copy-To (Join-Path $root "CONTRIBUTING.md")                   (Join-Path $a "CONTRIBUTING.md")
 
     Copy-To (Join-Path $root "VERSION")                           (Join-Path $a "VERSION")
