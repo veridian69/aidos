@@ -1,5 +1,5 @@
 ---
-name: AIDOS Auditor
+name: aidos-auditor
 description: Audit delivery artifacts against AIDOS rubrics. Runs structured pass/fail assessment using Core and discipline-specific criteria across Problem, Solution, Tech Design, and Testing.
 ---
 

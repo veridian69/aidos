@@ -1,5 +1,5 @@
 ---
-name: AIDOS Builder
+name: aidos-builder
 description: Build delivery artifacts using the AIDOS framework. Scaffolds Problem, Solution, Tech Design, and Testing documents at Epic, Feature, or Story scale with structured rubric-ready output.
 ---
 

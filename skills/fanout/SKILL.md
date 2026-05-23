@@ -1,5 +1,5 @@
 ---
-name: AIDOS Fanout
+name: aidos-fanout
 description: Orchestrate sub-agents to fill out per-Feature and per-Story artifacts in an .aidos/ folder whose breakdown has been committed and audited clean. Two-phase dispatch at Epic scope (Features first, then Stories); single-phase at Feature scope (Stories only). Context-isolated, bounded parallelism, autonomous per-artifact build–audit–fix loops.
 ---
 

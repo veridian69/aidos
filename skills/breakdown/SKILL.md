@@ -1,5 +1,5 @@
 ---
-name: AIDOS Breakdown
+name: aidos-breakdown
 description: Scaffold an Epic-scope or Feature-scope decomposition into Features and Stories. Reads approved upstream artifacts (Problem + Solution, or feature.md), proposes a decomposition interactively, then commits stubs to the filesystem with TL;DRs and Breakdown Context seeded. Audits the result against the Breakdown rubric. No project-management concerns — audits shape, not sizing or sequencing.
 ---
 
