@@ -22,6 +22,7 @@ Everything goes in the artifact. If it happened in the session — a decision, a
 12. **The framework waits for humans.** AI makes action fast. Decisions still need people. The rhythm respects that.
 13. **Rubrics evolve.** Retrospectives feed lessons back into the quality standards.
 14. **Delivery artifacts are the long-term record.** Keep them current as the feature evolves.
+15. **Solutions say WHAT, direction guides HOW.** The Solution never names the system's internal parts. Tech Design offers direction; devs follow it or push back. Silent compliance is the only wrong response.
 
 ---
 
@@ -75,7 +76,7 @@ Each file migrates independently. A workspace can have files at mixed versions �
 
 ### Stamping new artifacts
 
-When scaffolding a new artifact from a template, the template already contains `**AIDOS Version:** 1.0.0` as a placeholder. Replace it with the current version from `VERSION` before saving. If they happen to match, no change is needed.
+When scaffolding a new artifact from a template, the template already contains a placeholder `**AIDOS Version:**` line. Replace it with the current version from `VERSION` before saving. If they happen to match, no change is needed.
 
 ---
 
@@ -136,14 +137,14 @@ Not every piece of work needs the full stack at full depth.
 |---|---|---|---|
 | Problem | Problem (full depth) | Problem (focused) | Context |
 | Solution | Solution (system-level) | Solution (feature-scope) | User Story |
-| Tech Design | Tech Design (architecture) | Tech Design (implementation brief) | Technical Approach |
+| Tech Design | Tech Design (direction — architecture) | Tech Design (direction, optional) | Technical Approach (direction, optional) |
 | Testing | Test Strategy | Test Plan | Acceptance Criteria |
 
 **Epic** — large initiative, multiple sprints and people. Create 4 separate files (Problem, Solution, Tech Design, Test Strategy) plus an Issues Log. Full depth because the cost of getting it wrong is high.
 
-**Feature** — one to two sprints, typically one builder. Create 1 combined file with Problem, Solution, and Tech Design sections, plus 1 separate Test Plan. The Problem section can be lightweight if the Epic Problem is strong. The Tech Design section carries the most weight — it's the coding agent brief.
+**Feature** — one to two sprints, typically one builder. Create 1 combined file with Problem, Solution, and (optionally) Tech Design sections, plus 1 separate Test Plan. The Problem section can be lightweight if the Epic Problem is strong. The Tech Design section is direction, included at the architect's discretion: include it only when its absence would make a wrong implementation plausible, and always when this Feature's Stories share any seam (cross-Story contracts can only live here). The slot is never silently absent — when omitted, scaffold it as: `## Tech Design` followed by `*Omitted — [architect's one-line reasoning].*` Ask the human for that reasoning; do not invent it. The coding session owns its own implementation brief.
 
-**Story** — a day or less. Create 1 file containing everything. Lean artifacts that inherit heavily from the parent Feature. At story scale, artifacts compress enough that their form changes — use the renamed labels: Context (not Problem), User Story (not Solution), Technical Approach (not Tech Design), Acceptance Criteria (not Testing). These map directly to the four artifact types and are still assessed against the same rubrics at lighter depth.
+**Story** — a day or less. Create 1 file containing everything. Lean artifacts that inherit heavily from the parent Feature. At story scale, artifacts compress enough that their form changes — use the renamed labels: Context (not Problem), User Story (not Solution), Technical Approach (not Tech Design), Acceptance Criteria (not Testing). Technical Approach is optional on the same recorded-discretion terms — present with content, or present as a one-line recorded omission. These map directly to the four artifact types and are still assessed against the same rubrics at lighter depth.
 
 **The scale determines the structure.** This is mandated by the framework — builders don't choose how to split artifacts. When scale is established, scaffold the correct documents immediately. The human decides depth and scope; the framework decides document structure.
 
@@ -161,7 +162,7 @@ Conversely, if work started as an epic but turns out to be simpler, suggest coll
 
 You know every rubric criterion and build with them in mind so audits pass cleanly. You reference criteria by ID when relevant. But you do NOT self-audit. That's the auditor's job in a separate session.
 
-### Core Rubric (C1–C13) — Every Artifact, Every Scale
+### Core Rubric (C1–C14) — Every Artifact, Every Scale
 
 | # | Criterion | What "Pass" Looks Like |
 |---|---|---|
@@ -178,8 +179,9 @@ You know every rubric criterion and build with them in mind so audits pass clean
 | C11 | No duplication | References rather than copies. Each fact lives in one place. |
 | C12 | Single unit of work | Addresses a single deliverable that can be independently understood, built, tested, and released. |
 | C13 | Implementation neutrality at the right altitude | The artifact says nothing about implementation that the coding session is better placed to decide. Problem and Solution avoid tools/vendors/schemas/libraries. Tech Design constrains architecture (boundaries, state ownership, seam contracts at kind level, invariants, failure posture) not code. Testing asserts behaviour, not test code. See framework § Altitude Discipline. |
+| C14 | Title altitude | Artifact, Feature, and Story titles read as user-experience or business-outcome statements, not component/module/service/technical-role names. "An open window stops heating the room" passes; "Resolver Service" fails. Pre-existing external system names are not component names. |
 
-### Problem Rubric (P1–P11) — Product Lens
+### Problem Rubric (P1–P13) — Product Lens
 
 | # | Criterion | What "Pass" Looks Like |
 |---|---|---|
@@ -194,8 +196,10 @@ You know every rubric criterion and build with them in mind so audits pass clean
 | P9 | Impact and urgency | Cost quantified where possible. Why now. What happens if not addressed. |
 | P10 | Existing alternatives | Whether the problem is already solved acknowledged. Building is justified, not default. |
 | P11 | Honest framing | Problem reads honestly about what's broken, including awkward truths the author would have reason to soften. A stakeholder would recognise their experience. Sanitised plausible prose fails. |
+| P12 | System purpose grounding | Statement establishes who the system serves, what for, what success looks like in operator/user terms — before implementation pain. At least one Goal is purpose-grounded. |
+| P13 | Epic goal altitude | At Epic scope, every Goal is observed by users/operators/business, not the codebase. Implementation-shaped goals move to Feature scope, Tech Design, or Overflow (tagged destination) — moved, not deleted. Epic scope only. |
 
-### Solution Rubric (S1–S9) — Analysis Lens
+### Solution Rubric (S1–S10) — Analysis Lens
 
 | # | Criterion | What "Pass" Looks Like |
 |---|---|---|
@@ -208,6 +212,7 @@ You know every rubric criterion and build with them in mind so audits pass clean
 | S7 | Migration and transition | Path from current state to proposed state described. Cutover, compatibility, rollback addressed. |
 | S8 | Actor identification | Every person, team, or system that interacts is identified with specific interactions. |
 | S9 | Constraint compliance | Solution respects Problem constraints. Gaps acknowledged with mitigation or trade-off. |
+| S10 | Solution altitude discipline | The system under design is one undivided black box. No sentence names an internal component/module/service/technical role of it, in any grammatical position. Observer test: someone who has never seen the code can evaluate every sentence. External/pre-existing systems are legitimate actors; external mechanisms are committed only as constraints or explicit S5-weighed decisions, outcome stated first. |
 
 ### Tech Design Rubric (A1–A10) — Architecture Lens
 
@@ -473,6 +478,8 @@ When implementation language surfaces (tools, vendors, schemas, APIs, products, 
 **During Solution sessions (and Story-scale User Story):**
 When implementation detail surfaces (tables, columns, joins, data types, libraries, services, frameworks, APIs), ask: is this a pre-existing constraint? If yes, link it in Constraint Compliance (S9), referencing the source constraint in P8. If no, it's implementation drift — capture in the Overflow Log tagged for Tech Design. The Solution chooses the conceptual response; how it executes is Tech Design's job, drafted by a developer with codebase context.
 
+Internal-component drift is the second watch (S10): when Solution prose starts naming parts of the system being built — a resolver, a writer, a queue worker, a service layer — stop. The system is one black box at this altitude. Rewrite the sentence as the observable outcome it produces, or park the component thinking in the Overflow Log tagged for Tech Design. Watch passive voice: "the setpoint is computed by the resolver" is the same drift wearing a disguise.
+
 **During Tech Design sessions (mechanism justification gate):**
 
 Symmetric with Truth-Up Elicitation for Problem. Before naming any new mechanism in the Tech Design — queue, cache, dedup, debounce, retry, cooldown, store, flag, bus event — ask five questions:
@@ -500,8 +507,9 @@ Templates in v1.3.0 mark several sections CONDITIONAL — they earn their place 
 | Constraint Compliance (Solution S9) | External constraints actually bite the design. |
 | Migration and Transition (Solution S7) | There's a real cutover from a previous state. |
 | Scope Boundary (Solution, new in v1.3.0) | Adjacent responsibilities could be confused with this one. |
+| Tech Design section (Feature/Story composition, v2.0.0) | Its absence would make a wrong implementation plausible — and always when the Feature's Stories share any seam. When omitted, the slot carries a one-line recorded omission with the architect's reasoning. |
 
-A conditional section that's present must carry real content tracing to the trigger. A conditional section that's absent is not a Bug — it's the absence of unearned ceremony.
+A conditional section that's present must carry real content tracing to the trigger. A conditional section that's absent is not a Bug — it's the absence of unearned ceremony. (Exception: the Tech Design slot at Feature/Story is never silently absent — omission is recorded with the architect's one-line reasoning.)
 
 ## What You Don't Do
 
@@ -537,7 +545,7 @@ After completing an artifact set that audits clean, surface the natural next AID
 
 > *Problem + Solution complete and audited clean. When you're ready to break this down into Features and Stories, invoke `/aidos-breakdown`.*
 
-**At Feature scope (after `feature.md`):** When the Feature artifact (combined P+S+TD) exists and is Bug-clean, output:
+**At Feature scope (after `feature.md`):** When the Feature artifact (combined P+S, plus the Tech Design slot) exists and is Bug-clean, output:
 
 > *Feature artifact complete and audited clean. When you're ready to break this down into Stories, invoke `/aidos-breakdown`.*
 
