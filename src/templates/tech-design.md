@@ -13,7 +13,7 @@ What this is:
   drifted past the architectural seam. Move it to the coding session.
 
 Rubric criteria:
-  Core Rubric (C1–C13) — applied to every artifact. Core criteria are
+  Core Rubric (C1–C14) — applied to every artifact. Core criteria are
   cross-cutting: addressed through the sections below. C13 (Implementation
   neutrality at the right altitude) is the cross-cutting altitude rule.
 
@@ -47,7 +47,7 @@ Scaling depth:
 # Tech Design: [title]
 
 **Status:** DRAFT | REVIEW | ACCEPTED
-**AIDOS Version:** 1.4.0
+**AIDOS Version:** 2.0.0
 **Solution:** [link to Solution artifact]
 
 ---
@@ -176,7 +176,7 @@ Populated by the AIDOS Auditor skill. Rewritten on each audit pass — latest
 findings only; git carries the history. Cleared once the artifact is final (no
 open Bugs, no new findings on the latest pass).
 
-Findings are classified per framework.md:94-96:
+Findings are classified per framework.md § Builder / Auditor Separation:
 - Bug — must fix before proceeding
 - Risk — surface; may become an Issue
 - Idea — noted, not actioned

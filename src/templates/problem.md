@@ -7,7 +7,7 @@ What this is:
   Everything downstream — Solution, Tech Design, Testing — builds on this.
 
 Rubric criteria:
-  Core Rubric (C1–C13) — applied to every artifact. Core criteria are
+  Core Rubric (C1–C14) — applied to every artifact. Core criteria are
   cross-cutting: you address them through the sections below, not in
   separate sections. In particular:
     C1  Alignment to goals — every element traces to a stated goal
@@ -24,8 +24,10 @@ Rubric criteria:
     C12 Single unit of work — one problem, decompose if it's too many
     C13 Implementation neutrality at the right altitude — Problem prose
         names no tools/vendors/schemas/libraries unless pre-existing constraints
+    C14 Title altitude — the title states the problem being solved, not
+        the part being built
 
-  Problem Rubric (P1–P11) — discipline-specific criteria. Each section
+  Problem Rubric (P1–P13) — discipline-specific criteria. Each section
   below maps to one or more of these:
     P1  Clarity → Problem Statement
     P2  Stakeholder identification → Stakeholders
@@ -39,6 +41,11 @@ Rubric criteria:
     P10 Existing alternatives considered → Existing Alternatives
     P11 Honest framing → cross-cutting across the artifact's prose
         (no dedicated section — the whole Problem must read honestly)
+    P12 System purpose grounding → Problem Statement (open with who the
+        system serves and what success looks like, before any pain) AND
+        Goals and Success Criteria (at least one Goal is purpose-grounded)
+    P13 Epic goal altitude → Goals and Success Criteria (Epic scope: every
+        goal observed by users/operators/business, never the codebase)
 
 Coherence check:
   The Problem artifact is the start of the stack. No preceding artifact
@@ -59,7 +66,7 @@ Scaling depth:
 # Problem: [title]
 
 **Status:** DRAFT | REVIEW | ACCEPTED
-**AIDOS Version:** 1.4.0
+**AIDOS Version:** 2.0.0
 **Parent:** [link to Epic problem, if this is Feature or Story scale]
 
 ---
@@ -67,7 +74,11 @@ Scaling depth:
 ## Problem Statement
 <!-- P1: Clarity. State what's wrong, for whom, and why it matters.
      Plain language. No jargon without definition. A reader unfamiliar
-     with the project should understand this without prior conversation. -->
+     with the project should understand this without prior conversation.
+     P12: System purpose grounding. Open with who the system serves and
+     what success looks like in their terms — before any implementation
+     pain. At Feature/Story scale, referencing the parent Epic's purpose
+     satisfies this. -->
 
 [What is happening, who is affected, and why it matters.]
 
@@ -84,7 +95,12 @@ Scaling depth:
 
 ## Goals and Success Criteria
 <!-- P3: Goal measurability. Specific, measurable, verifiable.
-     "Reduce X to under Y" not "improve Z." -->
+     "Reduce X to under Y" not "improve Z."
+     P12: at least one Goal is purpose-grounded (operator/user-facing).
+     P13 (Epic scope): every Goal is observed by users, operators, or the
+     business — implementation-shaped goals move to Feature scope, Tech
+     Design, or the Overflow Log, tagged with their destination (moved, not
+     deleted). -->
 
 | # | Goal | Success Metric | How Verified |
 |---|---|---|---|
@@ -174,7 +190,7 @@ Populated by the AIDOS Auditor skill. Rewritten on each audit pass — latest
 findings only; git carries the history. Cleared once the artifact is final (no
 open Bugs, no new findings on the latest pass).
 
-Findings are classified per framework.md:94-96:
+Findings are classified per framework.md § Builder / Auditor Separation:
 - Bug — must fix before proceeding
 - Risk — surface; may become an Issue
 - Idea — noted, not actioned

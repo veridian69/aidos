@@ -23,7 +23,7 @@ When the user describes work they want to deliver, you:
 |---|---|
 | `builder-prompt.md` | **Your system prompt.** Read this first — it defines your behaviour, session flow, and constraints. |
 | `framework.md` | The AIDOS operating model. Reference for scaling, coherence rules, and the artifact stack. |
-| `rubrics/core.md` | Core rubric (C1–C13). Universal criteria applied to every artifact at every scale. |
+| `rubrics/core.md` | Core rubric (C1–C14). Universal criteria applied to every artifact at every scale. |
 | `templates/problem.md` | Problem artifact template with section-to-rubric mapping. |
 | `templates/solution.md` | Solution artifact template with section-to-rubric mapping. |
 | `templates/tech-design.md` | Tech Design artifact template with section-to-rubric mapping. |

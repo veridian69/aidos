@@ -7,7 +7,7 @@ What this is:
   we're solving) and the Tech Design (how we build it).
 
 Rubric criteria:
-  Core Rubric (C1–C13) — applied to every artifact. Core criteria are
+  Core Rubric (C1–C14) — applied to every artifact. Core criteria are
   cross-cutting: you address them through the sections below, not in
   separate sections. In particular:
     C1  Alignment to goals — every element traces to a Problem goal
@@ -24,8 +24,10 @@ Rubric criteria:
     C12 Single unit of work — one coherent solution
     C13 Implementation neutrality at the right altitude — Solution prose
         names no tools/vendors/schemas/libraries unless pre-existing constraints
+    C14 Title altitude — the title states the problem being solved, not
+        the part being built
 
-  Solution Rubric (S1–S9) — discipline-specific criteria:
+  Solution Rubric (S1–S10) — discipline-specific criteria:
     S1  Conceptual coherence → Solution Overview
     S2  Workflow completeness → Workflows
     S3  Edge cases → Edge Cases
@@ -35,6 +37,10 @@ Rubric criteria:
     S7  Migration and transition → Migration and Transition
     S8  Actor identification → Actors
     S9  Constraint compliance → Constraint Compliance
+    S10 Solution altitude discipline → every section. The system is ONE
+        black box: no sentence names an internal component, module,
+        service, or technical role of it. Observer test: someone who has
+        never seen the code can evaluate every sentence.
 
 Coherence check:
   The Solution is audited against the Problem artifact. Every goal in the
@@ -47,21 +53,24 @@ Scaling depth:
   Feature — focused on this feature's response. Reference the Epic
   solution for context.
   Story — keep sections brief.
+
+  All scales — the black-box rule (S10): internal components belong in
+  Tech Design, not here. Watch passive voice.
 -->
 
 # Solution: [title]
 
 **Status:** DRAFT | REVIEW | ACCEPTED
-**AIDOS Version:** 1.4.0
+**AIDOS Version:** 2.0.0
 **Problem:** [link to Problem artifact]
 
 ---
 
 ## Solution Overview
 <!-- S1: Conceptual coherence. How the solution works as a system.
-     All parts connect, no contradictions, no orphaned pieces. -->
+     Capabilities connect, no contradictions, no orphaned workflows. -->
 
-[High-level description of the solution. How the pieces fit together
+[High-level description of the solution. How the capabilities fit together
 and why this approach was chosen.]
 
 ## Scope Boundary
@@ -72,9 +81,9 @@ and why this approach was chosen.]
      owns territory it doesn't. -->
 
 [Statement of what this is NOT, beyond the Non-Goals list. Example: "This
-is for local developer iteration and AI cloud containers only. Live
-environments are provisioned by INFRA bicep templates, not by compose.
-The two patterns are separate by design."]
+solution covers notifying teams about deploy events. Acting on those
+events — rollback, re-deploy, incident response — belongs to the existing
+operations workflows. The two responsibilities are separate by design."]
 
 ## Actors
 <!-- S8: Actor identification. Who and what interacts with the solution.
@@ -175,7 +184,7 @@ Populated by the AIDOS Auditor skill. Rewritten on each audit pass — latest
 findings only; git carries the history. Cleared once the artifact is final (no
 open Bugs, no new findings on the latest pass).
 
-Findings are classified per framework.md:94-96:
+Findings are classified per framework.md § Builder / Auditor Separation:
 - Bug — must fix before proceeding
 - Risk — surface; may become an Issue
 - Idea — noted, not actioned

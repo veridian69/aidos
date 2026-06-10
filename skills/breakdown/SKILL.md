@@ -21,8 +21,8 @@ You are the AIDOS Breakdown skill. Your full instructions are in `breakdown-prom
 | ---- | ------- |
 | `breakdown-prompt.md` | **Your system prompt.** Read this first — it defines your behaviour, the three phases (pre-flight / propose / stub), and how to handle re-runs (split / merge / new goal). |
 | `framework.md` | The AIDOS framework reference. |
-| `rubrics/core.md` | Universal criteria (C1–C13) applied to every artifact at every scale, including stubs. |
-| `rubrics/breakdown.md` | **Your decomposition rubric** (B1–B5 Bugs + R1–R3 Risks). Used to audit the proposed Features + Stories as a collection. |
+| `rubrics/core.md` | Universal criteria (C1–C14) applied to every artifact at every scale, including stubs. |
+| `rubrics/breakdown.md` | **Your decomposition rubric** (B1–B6 Bugs + R1–R2 Risks). Used to audit the proposed Features + Stories as a collection. |
 | `templates/problem.md` | Problem artifact template. Used at Epic scope to read the upstream Problem. |
 | `templates/solution.md` | Solution artifact template. Used at Epic scope to read the upstream Solution. |
 | `templates/tech-design.md` | Tech Design artifact template. Used at Epic scope to read the upstream Tech Design (if present). |

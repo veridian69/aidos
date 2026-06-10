@@ -13,7 +13,7 @@ const NAMES = {
 const DEPTHS = {
   "Problem-Epic": "Full depth", "Problem-Feature": "Focused", "Problem-Story": "A few sentences",
   "Solution-Epic": "System-level", "Solution-Feature": "Feature-scope", "Solution-Story": "As a / I want / So that",
-  "Tech Design-Epic": "Architecture", "Tech Design-Feature": "Feature architecture", "Tech Design-Story": "Guardrails",
+  "Tech Design-Epic": "Architecture direction", "Tech Design-Feature": "Direction (optional)", "Tech Design-Story": "Direction (optional)",
   "Testing-Epic": "Approach & priorities", "Testing-Feature": "Full scenarios", "Testing-Story": "What done looks like",
 };
 
