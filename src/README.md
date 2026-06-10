@@ -52,9 +52,9 @@ prompts/
 ├── builder-prompt.md        ← Self-contained system prompt for building artifacts
 └── auditor-prompt.md        ← Self-contained system prompt for auditing artifacts
 rubrics/
-├── core.md                  ← Universal criteria (C1–C13)
-├── problem.md               ← Product lens (P1–P11)
-├── solution.md              ← Analysis lens (S1–S9)
+├── core.md                  ← Universal criteria (C1–C14)
+├── problem.md               ← Product lens (P1–P13)
+├── solution.md              ← Analysis lens (S1–S10)
 ├── tech-design.md           ← Architecture lens (A1–A10)
 └── testing.md               ← Quality lens (T1–T9)
 templates/

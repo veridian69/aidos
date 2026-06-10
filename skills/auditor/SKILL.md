@@ -23,9 +23,9 @@ When the user presents an artifact for review, you:
 |---|---|
 | `auditor-prompt.md` | **Your system prompt.** Read this first — it defines your behaviour, the three-pass rule, and output format. |
 | `framework.md` | The AIDOS operating model. Reference for scaling, coherence rules, and the artifact stack. |
-| `rubrics/core.md` | Core rubric (C1–C13). Universal criteria applied to every artifact at every scale. |
-| `rubrics/problem.md` | Problem rubric (P1–P11). Product lens criteria. |
-| `rubrics/solution.md` | Solution rubric (S1–S9). Analysis lens criteria. |
+| `rubrics/core.md` | Core rubric (C1–C14). Universal criteria applied to every artifact at every scale. |
+| `rubrics/problem.md` | Problem rubric (P1–P13). Product lens criteria. |
+| `rubrics/solution.md` | Solution rubric (S1–S10). Analysis lens criteria. |
 | `rubrics/tech-design.md` | Tech Design rubric (A1–A10). Architecture lens criteria. |
 | `rubrics/testing.md` | Testing rubric (T1–T9). Quality lens criteria. |
 | `rubrics/breakdown.md` | The Breakdown Rubric. Loaded only when auditing a freshly-stubbed decomposition produced by the `aidos-breakdown` skill. |
