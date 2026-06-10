@@ -1,10 +1,10 @@
 # AIDOS Migrations
 
-Migration files describe how to upgrade an AIDOS artifact from one framework version to the next. One file per minor version bump.
+Migration files describe how to upgrade an AIDOS artifact from one framework version to the next. One file per minor or major version bump.
 
 ## File naming
 
-`vX.Y.Z-to-vX.Y+1.0.md` — e.g. `v1.0.0-to-v1.1.0.md`, `v1.1.0-to-v1.2.0.md`.
+`vX.Y.Z-to-v<next>.md` where `<next>` is the next minor (`vX.Y+1.0`) or major (`vX+1.0.0`) version — e.g. `v1.0.0-to-v1.1.0.md`, `v1.4.0-to-v2.0.0.md`.
 
 Patch bumps (v1.0.0 → v1.0.1) never have migrations. Patches are wording-only.
 
@@ -30,6 +30,8 @@ Brief human-readable description of what changed and why.
 ## Metadata changes
 None.
 ```
+
+Major-version migrations may be **best-effort**: structural steps are automated; content-level steps are written as agent instructions with human confirmation gates, and un-migrated artifacts remain valid under their stamped version.
 
 ## Who reads these files
 
