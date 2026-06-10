@@ -50,13 +50,16 @@ Read [`framework.md`](framework.md) to understand the operating model, then run 
 framework.md                 ← The full operating model — start here
 prompts/
 ├── builder-prompt.md        ← Self-contained system prompt for building artifacts
-└── auditor-prompt.md        ← Self-contained system prompt for auditing artifacts
+├── auditor-prompt.md        ← Self-contained system prompt for auditing artifacts
+├── breakdown-prompt.md      ← System prompt for decomposing Epics/Features into stubs
+└── fanout-prompt.md         ← System prompt for orchestrating per-stub sub-agent builds
 rubrics/
 ├── core.md                  ← Universal criteria (C1–C14)
 ├── problem.md               ← Product lens (P1–P13)
 ├── solution.md              ← Analysis lens (S1–S10)
 ├── tech-design.md           ← Architecture lens (A1–A10)
-└── testing.md               ← Quality lens (T1–T9)
+├── testing.md               ← Quality lens (T1–T9)
+└── breakdown.md             ← Decomposition shape (B1–B6 Bugs, R1–R2 Risks)
 templates/
 ├── problem.md               ← Problem artifact template
 ├── solution.md              ← Solution artifact template
