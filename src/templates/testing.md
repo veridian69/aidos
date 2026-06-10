@@ -25,7 +25,7 @@ Three depths, one template:
     permitted — the story needs a checkable behavioural outcome.
 
 Rubric criteria:
-  Core Rubric (C1–C13) — applied to every artifact, cross-cutting.
+  Core Rubric (C1–C14) — applied to every artifact, cross-cutting.
   C13 (Implementation neutrality at the right altitude) is the cross-
   cutting altitude rule.
 
@@ -48,7 +48,7 @@ Coherence check:
 # Testing: [title]
 
 **Status:** DRAFT | REVIEW | ACCEPTED
-**AIDOS Version:** 1.4.0
+**AIDOS Version:** 2.0.0
 **Tech Design:** [link to Tech Design artifact]
 **Solution:** [link to Solution artifact]
 

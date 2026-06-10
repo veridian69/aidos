@@ -7,7 +7,7 @@ What this is:
   Everything downstream — Solution, Tech Design, Testing — builds on this.
 
 Rubric criteria:
-  Core Rubric (C1–C13) — applied to every artifact. Core criteria are
+  Core Rubric (C1–C14) — applied to every artifact. Core criteria are
   cross-cutting: you address them through the sections below, not in
   separate sections. In particular:
     C1  Alignment to goals — every element traces to a stated goal
@@ -24,8 +24,10 @@ Rubric criteria:
     C12 Single unit of work — one problem, decompose if it's too many
     C13 Implementation neutrality at the right altitude — Problem prose
         names no tools/vendors/schemas/libraries unless pre-existing constraints
+    C14 Title altitude — the title states the problem being solved, not
+        the part being built
 
-  Problem Rubric (P1–P11) — discipline-specific criteria. Each section
+  Problem Rubric (P1–P13) — discipline-specific criteria. Each section
   below maps to one or more of these:
     P1  Clarity → Problem Statement
     P2  Stakeholder identification → Stakeholders
@@ -39,6 +41,10 @@ Rubric criteria:
     P10 Existing alternatives considered → Existing Alternatives
     P11 Honest framing → cross-cutting across the artifact's prose
         (no dedicated section — the whole Problem must read honestly)
+    P12 System purpose grounding → Problem Statement (open with who the
+        system serves and what success looks like, before any pain)
+    P13 Epic goal altitude → Goals and Success Criteria (Epic scope: every
+        goal observed by users/operators/business, never the codebase)
 
 Coherence check:
   The Problem artifact is the start of the stack. No preceding artifact
@@ -59,7 +65,7 @@ Scaling depth:
 # Problem: [title]
 
 **Status:** DRAFT | REVIEW | ACCEPTED
-**AIDOS Version:** 1.4.0
+**AIDOS Version:** 2.0.0
 **Parent:** [link to Epic problem, if this is Feature or Story scale]
 
 ---

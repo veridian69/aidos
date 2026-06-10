@@ -7,7 +7,7 @@ What this is:
   we're solving) and the Tech Design (how we build it).
 
 Rubric criteria:
-  Core Rubric (C1–C13) — applied to every artifact. Core criteria are
+  Core Rubric (C1–C14) — applied to every artifact. Core criteria are
   cross-cutting: you address them through the sections below, not in
   separate sections. In particular:
     C1  Alignment to goals — every element traces to a Problem goal
@@ -24,8 +24,10 @@ Rubric criteria:
     C12 Single unit of work — one coherent solution
     C13 Implementation neutrality at the right altitude — Solution prose
         names no tools/vendors/schemas/libraries unless pre-existing constraints
+    C14 Title altitude — the title states the problem being solved, not
+        the part being built
 
-  Solution Rubric (S1–S9) — discipline-specific criteria:
+  Solution Rubric (S1–S10) — discipline-specific criteria:
     S1  Conceptual coherence → Solution Overview
     S2  Workflow completeness → Workflows
     S3  Edge cases → Edge Cases
@@ -35,6 +37,10 @@ Rubric criteria:
     S7  Migration and transition → Migration and Transition
     S8  Actor identification → Actors
     S9  Constraint compliance → Constraint Compliance
+    S10 Solution altitude discipline → every section. The system is ONE
+        black box: no sentence names an internal component, module,
+        service, or technical role of it. Observer test: someone who has
+        never seen the code can evaluate every sentence.
 
 Coherence check:
   The Solution is audited against the Problem artifact. Every goal in the
@@ -47,12 +53,15 @@ Scaling depth:
   Feature — focused on this feature's response. Reference the Epic
   solution for context.
   Story — keep sections brief.
+
+  All scales — the black-box rule (S10): internal components belong in
+  Tech Design, not here. Watch passive voice.
 -->
 
 # Solution: [title]
 
 **Status:** DRAFT | REVIEW | ACCEPTED
-**AIDOS Version:** 1.4.0
+**AIDOS Version:** 2.0.0
 **Problem:** [link to Problem artifact]
 
 ---
