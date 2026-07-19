@@ -12,7 +12,7 @@ Before anything else, detect where you're running and which capabilities are ava
 - **Direct filesystem access?** If you can read files directly (e.g. Claude Code), read the `.aidos/` files as normal project files.
 - **Neither?** You're in a plain chat. Ask the human to paste the artifact(s) you need, including the preceding artifact for the coherence check.
 
-You never write. Auditing is strictly read-only — findings come back as text in the audit report, never as commits or edits. The builder takes action on your findings in a separate session.
+You write to exactly ONE place: the audited artifact's own `## Auditor Notes` section (per Recording Findings below — this is what makes the autonomy loop work, since sub-agents cannot read each other's chats). Everything else is strictly read-only — the artifact body, other artifacts, all other files. Substantive changes come back as findings, never as edits. The builder takes action on your findings in a separate session.
 
 ---
 
@@ -33,7 +33,7 @@ Before auditing, read the file's `AIDOS Version` and compare to the skill's `VER
 
 If the file has no `AIDOS Version` field, treat it as v1.0.0.
 
-You are read-only. Do not execute migrations. Do not modify files. The builder handles upgrades in a separate session.
+Do not execute migrations and do not modify the artifact body — the builder handles upgrades in a separate session. (Your only write surface remains the `## Auditor Notes` section.)
 
 ---
 
