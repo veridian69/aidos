@@ -30,6 +30,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: shobman/aidos
+          # Pin to the same SHA the caller pinned in `uses:` — without this,
+          # the checkout fetches default-branch HEAD at runtime, so the code
+          # executing with the consumer's CONFLUENCE_TOKEN would not be the
+          # code they audited when they pinned the workflow.
+          ref: ${{ github.job_workflow_sha }}
           path: .aidos-connector
           sparse-checkout: src/connectors/confluence
 

@@ -30,7 +30,7 @@ export function userFacingError(status, context, details = {}) {
 
   if (status === 409) {
     const target = details.target || "the target branch";
-    return `Your changes conflict with what's on ${target}. Call publish and follow the conflict-packet flow with resolve to reconcile.`;
+    return `Your changes conflict with what's on ${target}. Follow the conflict-packet flow with resolve to reconcile.`;
   }
 
   if (status === 422) {

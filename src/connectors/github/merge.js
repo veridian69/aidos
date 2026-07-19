@@ -111,8 +111,16 @@ export function buildMergedTree(detection, resolvedByPath) {
     // Deleted on both → omit.
     if (!onMain && !onBranch) continue;
 
-    // Deleted on main, unchanged on branch → omit.
-    if (!onMain && onBranch && onBase && r === b) continue;
+    // Deleted on main, unchanged on branch → TOMBSTONE, not omit. The merged
+    // tree is created with base_tree = the BRANCH tree (resolveConflicts), and
+    // the Trees API treats an omitted path as inherited from base — so omitting
+    // here silently resurrects the file, and the two-parent merge commit then
+    // marks the deletion as already-considered, hiding it from every future
+    // merge. Deleting against a base_tree requires an explicit null-SHA entry.
+    if (!onMain && onBranch && onBase && r === b) {
+      entries.push({ path, mode: "100644", type: "blob", sha: null });
+      continue;
+    }
 
     // Deleted on branch, unchanged on main → omit.
     if (!onBranch && onMain && onBase && m === b) continue;

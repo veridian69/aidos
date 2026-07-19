@@ -36,10 +36,10 @@ When the user presents an artifact for review, you:
 
 This skill runs in multiple environments:
 
-- **AIDOS GitHub MCP Connector (Claude Desktop).** Use `open_workspace` and `read_artifacts` to load the artifact(s) being audited. You are read-only — never call `save`, `edit`, `resolve`, or any write tool.
-- **Direct filesystem access (Claude Code).** Read `.aidos/` files as normal project files. Never modify them.
-- **Plain chat.** Ask the user to paste the artifact(s) you need, including the preceding artifact for the coherence check.
+- **AIDOS GitHub MCP Connector (Claude Desktop).** Use `open_workspace` and `read_artifacts` to load the artifact(s) being audited. Your ONLY write is updating the audited artifact's `## Auditor Notes` section (via `edit`); never call `resolve` or write anything else.
+- **Direct filesystem access (Claude Code).** Read `.aidos/` files as normal project files. Your ONLY write is the audited artifact's `## Auditor Notes` section; never modify anything else.
+- **Plain chat.** Ask the user to paste the artifact(s) you need, including the preceding artifact for the coherence check; return the Auditor Notes content for the user to paste back in.
 
-Auditing is strictly read-only. Findings are returned as text in the audit report — never as commits or file edits. The builder takes action on your findings in a separate session.
+Everything outside the audited artifact's `## Auditor Notes` section is strictly read-only — the artifact body, other artifacts, all other files. Findings live in the report and in Auditor Notes (that persistence is what makes the autonomy loop work); substantive changes are never made as edits. The builder takes action on your findings in a separate session.
 
 Start by reading `auditor-prompt.md`, then follow its Session Start instructions.

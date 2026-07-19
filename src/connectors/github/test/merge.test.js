@@ -305,14 +305,18 @@ describe("buildMergedTree", () => {
     assert.equal(n.sha, "n1");
   });
 
-  it("omits files deleted on main and unchanged on branch", () => {
+  it("tombstones files deleted on main and unchanged on branch (omission would inherit from base_tree)", () => {
     const det = makeDetection({
       base:   { "gone.md": "g0" },
       main:   {},
       branch: { "gone.md": "g0" },
     });
     const entries = buildMergedTree(det, new Map());
-    assert.equal(entries.find((e) => e.path === "gone.md"), undefined);
+    const g = entries.find((e) => e.path === "gone.md");
+    assert.notEqual(g, undefined);
+    assert.equal(g.sha, null);
+    assert.equal(g.mode, "100644");
+    assert.equal(g.type, "blob");
   });
 
   it("omits files deleted on branch and unchanged on main", () => {
